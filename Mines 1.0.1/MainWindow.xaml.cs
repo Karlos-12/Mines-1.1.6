@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using System.Windows.Controls;
 
 namespace Mines_1._0._1
 {
@@ -8,7 +9,7 @@ namespace Mines_1._0._1
     public partial class MainWindow : Window
     {
         Mines _1_1a = new Mines(false, 0);
-        Mines _1_2a =new Mines(false, 0);
+        Mines _1_2a = new Mines(false, 0);
         Mines _1_3a = new Mines(false, 0);
         Mines _1_4a = new Mines(false, 0);
         Mines _1_5a = new Mines(false, 0);
@@ -124,28 +125,27 @@ namespace Mines_1._0._1
             InitializeComponent();
 
 
-           
-            
-            
-            
-            
-           
-            
-            
-           
-            
+
+
+
+
+
+
+
+
+
+
         }
 
-        public void _1_1_Click(object sender, RoutedEventArgs e)
+        public void main_Click(object sender, RoutedEventArgs e)
         {
-            _1_1.Content = _1_1a.MinesNear;
+            Button bt = (Button)sender;
+            bt.Content = "11";
+            
 
         }
 
-        private void _1_2_Click(object sender, RoutedEventArgs e)
-        {
 
-        }
     }
 
 
