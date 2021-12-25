@@ -139,9 +139,13 @@ namespace Mines_1._0._1
 
         public void main_Click(object sender, RoutedEventArgs e)
         {
-            Button bt = (Button)sender;
-            bt.Content = "11";
             
+
+            Button bt = (Button)sender;
+
+            
+
+            bt.Content = [sender.ToString + "a"].MinesNear ;  
 
         }
 
