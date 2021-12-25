@@ -32,8 +32,8 @@
                 <ColumnDefinition Width="52*"/>
                 <ColumnDefinition Width="52"/>
             </Grid.ColumnDefinitions>
-            <Button x:Name="_1_1" Content="" HorizontalAlignment="Center" Height="52" Grid.Row="9" VerticalAlignment="Center" Width="52" Background="#FF707070" BorderBrush="#FFBDBDBD"/>
-            <Button x:Name="_1_2" Content="" HorizontalAlignment="Center" Height="52" Grid.Row="9" VerticalAlignment="Center" Width="52" Background="#FF707070" BorderBrush="#FFBDBDBD" Grid.Column="1"/>
+            <Button x:Name="_1_1" Content="" HorizontalAlignment="Center" Height="52" Grid.Row="9" VerticalAlignment="Center" Width="52" Background="#FF707070" BorderBrush="#FFBDBDBD" Click="_1_1_Click"/>
+            <Button x:Name="_1_2" Content="" HorizontalAlignment="Center" Height="52" Grid.Row="9" VerticalAlignment="Center" Width="52" Background="#FF707070" BorderBrush="#FFBDBDBD" Grid.Column="1" Click="_1_2_Click"/>
             <Button x:Name="_1_3" Content="" HorizontalAlignment="Center" Height="52" Grid.Row="9" VerticalAlignment="Center" Width="52" Background="#FF707070" BorderBrush="#FFBDBDBD" Grid.Column="2"/>
             <Button x:Name="_1_4" Content="" HorizontalAlignment="Center" Height="52" Grid.Row="9" VerticalAlignment="Center" Width="52" Background="#FF707070" BorderBrush="#FFBDBDBD" Grid.Column="3"/>
             <Button x:Name="_1_5" Content="" HorizontalAlignment="Center" Height="52" Grid.Row="9" VerticalAlignment="Center" Width="52" Background="#FF707070" BorderBrush="#FFBDBDBD" Grid.Column="4"/>
@@ -133,7 +133,6 @@
             <Button x:Name="_10_9" Content="" HorizontalAlignment="Center" Height="52" VerticalAlignment="Center" Width="52" Background="#FF707070" BorderBrush="#FFBDBDBD" Grid.Column="8"/>
             <Button x:Name="_10_10" Content="" HorizontalAlignment="Center" Height="52" VerticalAlignment="Center" Width="52" Background="#FF707070" BorderBrush="#FFBDBDBD" Grid.Column="9"/>
         </Grid>
-        <Button x:Name="play" Content="Play!" HorizontalAlignment="Left" Height="53" VerticalAlignment="Top" Width="182" BorderBrush="{x:Null}" Background="#FF6A6A6A" Foreground="White" FontWeight="Bold" FontSize="32" Click="play_Click"/>
         <Label x:Name="tmr" Content="00:00" HorizontalAlignment="Left" Height="53" Margin="314,0,0,0" VerticalAlignment="Top" Width="225" Foreground="White" FontSize="24"/>
 
     </Grid>
