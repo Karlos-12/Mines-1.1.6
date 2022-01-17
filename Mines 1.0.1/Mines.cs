@@ -2,33 +2,15 @@
 {
     internal class Mines
     {
-        public bool IsaMine { get; }
-        public int MinesNear { get; set; }
-        public string cordinates { get; }
+        public int up { get; set; }
+        public int side { get; set; }
 
-        public Mines(bool mine, int near)
+        public Mines(int up, int side)
         {
-            this.IsaMine = mine;
-            this.MinesNear = near;
+            this.up = up;
+            this.side = side;
 
 
-        }
-        public void click( int mn)
-        {
-            if (this.IsaMine == true)
-            {
-                //explode
-            }
-            else
-            {
-
-            }
-            
-            
-        }
-        
-
-
+        }      
     }
-
 }
