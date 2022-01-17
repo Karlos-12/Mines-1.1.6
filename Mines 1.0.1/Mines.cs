@@ -11,12 +11,17 @@
             this.IsaMine = mine;
             this.MinesNear = near;
 
+
         }
         public void click( int mn)
         {
             if (this.IsaMine == true)
             {
                 //explode
+            }
+            else
+            {
+
             }
             
             
