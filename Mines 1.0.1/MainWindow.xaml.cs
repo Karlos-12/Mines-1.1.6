@@ -306,7 +306,7 @@ namespace Mines_1._0._1
                         ((Button)(FindName("_" + (h + 1) + "_" + (w + 1)))).Content = 0;
 
                     }
-                    catch { MessageBox.Show("je to v piči!"); };
+                    catch { MessageBox.Show("unexpected error!"); };
 
 
 
@@ -338,7 +338,7 @@ namespace Mines_1._0._1
                         ((Button)(FindName("_" + (h + 1) + "_" + (w + 1)))).Content = 1;
                         ((Button)(FindName("_" + (h + 1) + "_" + (w + 1)))).Background = _1b;
                     }
-                    catch { MessageBox.Show("je to v piči!"); };
+                    catch { MessageBox.Show("unexpected error!!"); };
                 }
                 if (Log[h, w] == 2)
                 {
@@ -347,7 +347,7 @@ namespace Mines_1._0._1
                         ((Button)(FindName("_" + (h + 1) + "_" + (w + 1)))).Content = 2;
                         ((Button)(FindName("_" + (h + 1) + "_" + (w + 1)))).Background = _2b;
                     }
-                    catch { MessageBox.Show("je to v piči!"); };
+                    catch { MessageBox.Show("unexpected error!"); };
                 }
                 if (Log[h, w] == 3)
                 {
@@ -356,7 +356,7 @@ namespace Mines_1._0._1
                         ((Button)(FindName("_" + (h + 1) + "_" + (w + 1)))).Content = 3;
                         ((Button)(FindName("_" + (h + 1) + "_" + (w + 1)))).Background = _3b;
                     }
-                    catch { MessageBox.Show("je to v piči!"); };
+                    catch { MessageBox.Show("unexpected error!"); };
                 }
                 if (Log[h, w] == 4)
                 {
@@ -365,7 +365,7 @@ namespace Mines_1._0._1
                         ((Button)(FindName("_" + (h + 1) + "_" + (w + 1)))).Content = "x";
                         ((Button)(FindName("_" + (h + 1) + "_" + (w + 1)))).Background = _5b;
                     }
-                    catch { MessageBox.Show("je to v piči!"); };
+                    catch { MessageBox.Show("unexpected error!"); };
                     Ended();
                 }
             }
@@ -382,6 +382,22 @@ namespace Mines_1._0._1
                     now.Background = new SolidColorBrush(Color.FromArgb(255, 242, 239, 6));
                     ticked--;
                     mines.Content = ticked;
+                }
+                else if (ticked == 0)
+                {
+                    
+                    MessageBoxResult res = MessageBox.Show("Check mines?", "", MessageBoxButton.YesNo);
+                    if (res == MessageBoxResult.Yes)
+                    {
+if(_3_8.Content == "!"! & _4_3.Content == "!"! & _5_3.Content == "!"! & _5_4.Content == "!"! & _6_3.Content == "!"! & _6_9.Content == "!"! & _8_6.Content == "!"! & _9_3.Content == "!"! & _9_7.Content == "!"! & _9_8.Content == "!")
+                        {
+                            MessageBox.Show("You have won!");
+                        }
+                    }
+                    else
+                    { 
+                    Ended();
+                    }
                 }
             }
             else if (now.Content == "!")
