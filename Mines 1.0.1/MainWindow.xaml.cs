@@ -1,6 +1,8 @@
 ﻿using System.Timers;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Annotations;
+using System.Windows.Media;
 
 
 namespace Mines_1._0._1
@@ -10,6 +12,13 @@ namespace Mines_1._0._1
     /// </summary>
     public partial class MainWindow : Window
     {
+      
+        SolidColorBrush _1b = new SolidColorBrush(Color.FromArgb(100, 0, 89, 255));
+        SolidColorBrush _2b = new SolidColorBrush(Color.FromArgb(100, 0, 215, 0));
+        SolidColorBrush _3b = new SolidColorBrush(Color.FromArgb(100, 255, 0, 0));
+      
+        SolidColorBrush _5b = new SolidColorBrush(Color.FromArgb(100, 255, 255, 255));
+
         int[,] Log = {
             {0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
             {0, 0, 0, 0, 0, 0, 1, 1, 1, 0 },
@@ -21,7 +30,8 @@ namespace Mines_1._0._1
             {0, 1, 1, 1, 1, 4, 3, 2, 1, 0 },
             {0, 1, 4, 1, 1, 2, 4, 4, 1, 0 },
             {0, 1, 1, 1, 0, 1, 2, 2, 1, 0 }
-            };
+            }; 
+        
 
          Mines sou1 = new Mines(0, 0 );
          Mines sou2 = new Mines(0, 1 );
@@ -134,23 +144,27 @@ namespace Mines_1._0._1
         Mines sou100 = new Mines( 9, 9);
 
 
+        int ticked = 10;
 
 
 
         public MainWindow()
         {
+           
             InitializeComponent();
-            
+
+            mines.Content = ticked;
+
             _1_1.Tag = sou1;
-            _1_2.Tag = sou1;
-            _1_3.Tag = sou1;
-            _1_4.Tag = sou1;
-            _1_5.Tag = sou1;
-            _1_6.Tag = sou1;
-            _1_7.Tag = sou1;
-            _1_8.Tag = sou1;
-            _1_9.Tag = sou1;
-           _1_10.Tag = sou1;
+            _1_2.Tag = sou2;
+            _1_3.Tag = sou3;
+            _1_4.Tag = sou4;
+            _1_5.Tag = sou5;
+            _1_6.Tag = sou6;
+            _1_7.Tag = sou7;
+            _1_8.Tag = sou8;
+            _1_9.Tag = sou9;
+           _1_10.Tag = sou10;
         
             _2_1.Tag =sou11;
             _2_2.Tag =sou12;
@@ -172,7 +186,7 @@ namespace Mines_1._0._1
             _3_7.Tag =sou27;
             _3_8.Tag =sou28;
             _3_9.Tag =sou29;
-          _3_10.Tag = sou10;
+          _3_10.Tag = sou30;
         
             _4_1.Tag = sou31;
             _4_2.Tag = sou32;
@@ -183,7 +197,7 @@ namespace Mines_1._0._1
             _4_7.Tag = sou37;
             _4_8.Tag = sou38;
             _4_9.Tag = sou39;
-           _4_10.Tag = sou10;
+           _4_10.Tag = sou40;
         
             _5_1.Tag = sou41;
             _5_2.Tag = sou42;
@@ -194,7 +208,7 @@ namespace Mines_1._0._1
             _5_7.Tag = sou47;
             _5_8.Tag = sou48;
             _5_9.Tag = sou49;
-           _5_10.Tag = sou10;
+           _5_10.Tag = sou50;
 
             _6_1.Tag = sou51;
             _6_2.Tag = sou52;
@@ -205,7 +219,7 @@ namespace Mines_1._0._1
             _6_7.Tag = sou57;
             _6_8.Tag = sou58;
             _6_9.Tag = sou59;
-           _6_10.Tag = sou10;
+           _6_10.Tag = sou60;
         
             _7_1.Tag = sou61;
             _7_2.Tag = sou62;
@@ -216,7 +230,7 @@ namespace Mines_1._0._1
             _7_7.Tag = sou67;
             _7_8.Tag = sou68;
             _7_9.Tag = sou69;
-           _7_10.Tag = sou10;
+           _7_10.Tag = sou70;
         
             _8_1.Tag = sou71;
             _8_2.Tag = sou72;
@@ -227,7 +241,7 @@ namespace Mines_1._0._1
             _8_7.Tag = sou77;
             _8_8.Tag = sou78;
             _8_9.Tag = sou79;
-           _8_10.Tag = sou10;
+           _8_10.Tag = sou80;
         
             _9_1.Tag = sou81;
             _9_2.Tag = sou82;
@@ -238,7 +252,7 @@ namespace Mines_1._0._1
             _9_7.Tag = sou87;
             _9_8.Tag = sou88;
             _9_9.Tag = sou89;
-           _9_10.Tag = sou10;
+           _9_10.Tag = sou90;
         
             _10_1.Tag =sou91;
             _10_2.Tag =sou92;
@@ -284,69 +298,98 @@ namespace Mines_1._0._1
         }
 
         public void Countit(int h, int w)
+        {if (((Button)(FindName("_" + (h + 1) + "_" + (w + 1)))).Content != "!")
+            {
+                if (Log[h, w] == 0)
+                { Log[h, w] = 5;
+                    try {
+                        ((Button)(FindName("_" + (h + 1) + "_" + (w + 1)))).Content = 0;
+
+                    }
+                    catch { MessageBox.Show("je to v piči!"); };
+
+
+
+                    try {
+
+                        if (Log[h + 1, w] == 0)
+                        {
+                            Countit(h + 1, w);
+                        }
+                        if (Log[h - 1, w] == 0)
+                        {
+                            Countit(h - 1, w);
+                        }
+                        if (Log[h, w + 1] == 0)
+                        {
+                            Countit(h, w + 1);
+                        }
+                        if (Log[h, w - 1] == 0)
+                        {
+                            Countit(h, w - 1);
+                        }
+                    }
+                    catch { };
+                }
+                if (Log[h, w] == 1)
+                {
+                    try
+                    {
+                        ((Button)(FindName("_" + (h + 1) + "_" + (w + 1)))).Content = 1;
+                        ((Button)(FindName("_" + (h + 1) + "_" + (w + 1)))).Background = _1b;
+                    }
+                    catch { MessageBox.Show("je to v piči!"); };
+                }
+                if (Log[h, w] == 2)
+                {
+                    try
+                    {
+                        ((Button)(FindName("_" + (h + 1) + "_" + (w + 1)))).Content = 2;
+                        ((Button)(FindName("_" + (h + 1) + "_" + (w + 1)))).Background = _2b;
+                    }
+                    catch { MessageBox.Show("je to v piči!"); };
+                }
+                if (Log[h, w] == 3)
+                {
+                    try
+                    {
+                        ((Button)(FindName("_" + (h + 1) + "_" + (w + 1)))).Content = 3;
+                        ((Button)(FindName("_" + (h + 1) + "_" + (w + 1)))).Background = _3b;
+                    }
+                    catch { MessageBox.Show("je to v piči!"); };
+                }
+                if (Log[h, w] == 4)
+                {
+                    try
+                    {
+                        ((Button)(FindName("_" + (h + 1) + "_" + (w + 1)))).Content = "x";
+                        ((Button)(FindName("_" + (h + 1) + "_" + (w + 1)))).Background = _5b;
+                    }
+                    catch { MessageBox.Show("je to v piči!"); };
+                    Ended();
+                }
+            }
+        }
+
+        private void secondaryclick(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            if (Log[h, w] == 0)
-            {Log[h, w] = 5;
-                try { 
-                ((Button)(FindName("_" + (h+1) + "_" + (w+1)))).Content = 0;
-                }
-                catch { MessageBox.Show("je to v piči!"); };
-
-
-
-                try { 
-
-                if (Log[h + 1, w] == 0)
-                {
-                    Countit(h + 1, w);
-                }
-                if (Log[h - 1, w] == 0)
-                {
-                    Countit(h - 1, w);
-                }
-                if (Log[h, w + 1] == 0)
-                {
-                    Countit(h, w + 1);
-                }
-                if (Log[h, w - 1] == 0)
-                {
-                    Countit(h, w - 1);
-                }
-                }
-                catch { };
-            }
-            if (Log[h, w] == 1)
+            Button now = sender as Button;
+            if (now.Content != "!")
             {
-                try
+                if (ticked != 0)
                 {
-                    ((Button)(FindName("_" + (h + 1) + "_" + (w + 1)))).Content = 1;
+                    now.Content = "!";
+                    now.Background = new SolidColorBrush(Color.FromArgb(255, 242, 239, 6));
+                    ticked--;
+                    mines.Content = ticked;
                 }
-                catch { MessageBox.Show("je to v piči!"); };
             }
-            if (Log[h, w] == 2)
+            else if (now.Content == "!")
             {
-                try
-                {
-                    ((Button)(FindName("_" + (h + 1) + "_" + (w + 1)))).Content = 2;
-                }
-                catch { MessageBox.Show("je to v piči!"); };
-            }
-            if (Log[h, w] == 3)
-            {
-                try
-                {
-                    ((Button)(FindName("_" + (h + 1) + "_" + (w + 1)))).Content = 3;
-                }
-                catch { MessageBox.Show("je to v piči!"); };
-            }
-            if (Log[h, w] == 4)
-            {
-                try
-                {
-                    ((Button)(FindName("_" + (h + 1) + "_" + (w + 1)))).Content = "x";
-                }
-                catch { MessageBox.Show("je to v piči!"); };
-                Ended();
+                now.Content = "";
+                now.Background = new SolidColorBrush(Color.FromRgb(112, 112, 112));
+                ticked++;
+                mines.Content = ticked;
             }
         }
     }
