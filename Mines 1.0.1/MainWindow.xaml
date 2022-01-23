@@ -8,6 +8,8 @@
         Title="MainWindow" Height="733" Width="536" Background="#FF2C2C2C">
     <Grid Height="690" VerticalAlignment="Top">
         <Button x:Name="start" Content="Start" HorizontalAlignment="Left" Height="48" Margin="180,2,0,0" VerticalAlignment="Top" Width="160" FontWeight="Bold" FontSize="24" BorderBrush="#FF404040" Foreground="White" Background="#FF6D6D6D" BorderThickness="5,5,5,5" ClipToBounds="True" Click="start_Click"/>
+        <Rectangle HorizontalAlignment="Left" Height="49" Margin="52,3,0,0" VerticalAlignment="Top" Width="38" Fill="#FF6D6D6D" Stroke="#FF404040" StrokeThickness="5"/>
+        <Image HorizontalAlignment="Left" Height="39" Margin="52,8,0,0" VerticalAlignment="Top" Width="38" Source="/flagmine.png"/>
 
         <Grid x:Name="tl" Margin="0,170,0,0" HorizontalAlignment="Left" Width="520" IsEnabled="False">
             <Grid.RowDefinitions>
@@ -136,7 +138,7 @@
             <Button x:Name="_10_10" Content="" HorizontalAlignment="Center" Height="52" VerticalAlignment="Center" Width="52" Background="#FF707070" BorderBrush="#FFBDBDBD" Grid.Column="9" Click="main_Click" FontWeight="Bold" FontSize="24" BorderThickness="3,3,3,3" MouseRightButtonDown="secondaryclick"/>
         </Grid>
         <Label x:Name="tmr1" Content="00:00" Height="52" Margin="438,0,0,0" VerticalAlignment="Top" Foreground="White" FontSize="24" Background="#FF6D6D6D" BorderBrush="#FF404040" BorderThickness="5,5,5,5" FontWeight="Bold"/>
-        <Label x:Name="mines" Content="on" HorizontalAlignment="Left" Height="49" Margin="0,3,0,0" VerticalAlignment="Top" Width="52" Background="#FF6D6D6D" BorderBrush="#FF404040" BorderThickness="5,5,5,5" FontSize="24" FontWeight="Bold" Foreground="White"/>
+        <Label x:Name="mines" Content="on" HorizontalAlignment="Left" Height="49" Margin="0,3,0,0" VerticalAlignment="Top" Width="52" Background="#FF6D6D6D" BorderBrush="#FF404040" BorderThickness="5,5,0,5" FontSize="24" FontWeight="Bold" Foreground="White"/>
 
     </Grid>
 </Window>

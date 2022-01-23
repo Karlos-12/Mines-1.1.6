@@ -404,10 +404,10 @@ namespace Mines_1._0._1
                         {
                             MessageBox.Show("You have won!");
                         }
-                    }
-                    else
-                    {
-                        Ended();
+                        else
+                        {
+                            Ended();
+                        }
                     }
                 }
             }
