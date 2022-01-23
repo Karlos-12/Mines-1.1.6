@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Mines_1._0._1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="733" Width="536" Background="#FF2C2C2C">
+        Title="MainWindow" Height="733" Width="536" Background="#FF2C2C2C" Activated="Window_Activated">
     <Grid Height="690" VerticalAlignment="Top">
         <Button x:Name="start" Content="Start" HorizontalAlignment="Left" Height="48" Margin="180,2,0,0" VerticalAlignment="Top" Width="160" FontWeight="Bold" FontSize="24" BorderBrush="#FF404040" Foreground="White" Background="#FF6D6D6D" BorderThickness="5,5,5,5" ClipToBounds="True" Click="start_Click"/>
         <Rectangle HorizontalAlignment="Left" Height="49" Margin="52,3,0,0" VerticalAlignment="Top" Width="38" Fill="#FF6D6D6D" Stroke="#FF404040" StrokeThickness="5"/>

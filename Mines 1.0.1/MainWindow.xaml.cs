@@ -490,6 +490,11 @@ namespace Mines_1._0._1
             });
 
         }
+
+        private void Window_Activated(object sender, System.EventArgs e)
+        {
+            men.Hide();
+        }
     }
 
 

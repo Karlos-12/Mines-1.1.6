@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Mines_1._0._1"
         mc:Ignorable="d"
-        Title="Menu" Height="300" Width="650" Foreground="{x:Null}" Background="#7F4E4E4E">
+        Title="Menu" Height="322" Width="663" Foreground="{x:Null}" Background="#7F4E4E4E">
     <Grid>
         <Button Content="Play" HorizontalAlignment="Center" Height="50" Margin="0,166,0,0" VerticalAlignment="Top" Width="150" Background="#FF6D6D6D" BorderBrush="#FF404040" Foreground="White" FontSize="24" FontWeight="Bold" BorderThickness="5,5,5,5" Click="Button_Click_1"/>
         <Label Content="Minesweaper" HorizontalAlignment="Center" Height="69" Margin="0,62,0,0" VerticalAlignment="Top" Width="382" Background="{x:Null}" Foreground="White" FontSize="54" FontWeight="Bold" FontFamily="Inter Black"/>

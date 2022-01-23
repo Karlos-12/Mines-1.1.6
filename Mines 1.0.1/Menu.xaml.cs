@@ -17,6 +17,7 @@ namespace Mines_1._0._1
     /// </summary>
     public partial class Menu : Window
     {
+        
         public Menu()
         {
             InitializeComponent();
