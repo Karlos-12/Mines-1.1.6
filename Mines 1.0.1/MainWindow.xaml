@@ -5,9 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Mines_1._0._1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="729" Width="536" Background="#FF2C2C2C">
+        Title="MainWindow" Height="733" Width="536" Background="#FF2C2C2C">
     <Grid Height="690" VerticalAlignment="Top">
-        <Grid Margin="0,170,0,0" HorizontalAlignment="Left" Width="520">
+        <Button x:Name="start" Content="Start" HorizontalAlignment="Left" Height="48" Margin="180,2,0,0" VerticalAlignment="Top" Width="160" FontWeight="Bold" FontSize="24" BorderBrush="#FF404040" Foreground="White" Background="#FF6D6D6D" BorderThickness="5,5,5,5" ClipToBounds="True" Click="start_Click"/>
+
+        <Grid x:Name="tl" Margin="0,170,0,0" HorizontalAlignment="Left" Width="520" IsEnabled="False">
             <Grid.RowDefinitions>
                 <RowDefinition Height="52"/>
                 <RowDefinition Height="52"/>
@@ -133,7 +135,7 @@
             <Button x:Name="_10_9" Content="" HorizontalAlignment="Center" Height="52" VerticalAlignment="Center" Width="52" Background="#FF707070" BorderBrush="#FFBDBDBD" Grid.Column="8" Click="main_Click" FontWeight="Bold" FontSize="24" BorderThickness="3,3,3,3" MouseRightButtonDown="secondaryclick"/>
             <Button x:Name="_10_10" Content="" HorizontalAlignment="Center" Height="52" VerticalAlignment="Center" Width="52" Background="#FF707070" BorderBrush="#FFBDBDBD" Grid.Column="9" Click="main_Click" FontWeight="Bold" FontSize="24" BorderThickness="3,3,3,3" MouseRightButtonDown="secondaryclick"/>
         </Grid>
-        <Label x:Name="tmr" Content="00:00" Height="52" Margin="438,0,0,0" VerticalAlignment="Top" Foreground="White" FontSize="24" Background="#FF6D6D6D" BorderBrush="#FF404040" BorderThickness="5,5,5,5" FontWeight="Bold"/>
+        <Label x:Name="tmr1" Content="00:00" Height="52" Margin="438,0,0,0" VerticalAlignment="Top" Foreground="White" FontSize="24" Background="#FF6D6D6D" BorderBrush="#FF404040" BorderThickness="5,5,5,5" FontWeight="Bold"/>
         <Label x:Name="mines" Content="on" HorizontalAlignment="Left" Height="49" Margin="0,3,0,0" VerticalAlignment="Top" Width="52" Background="#FF6D6D6D" BorderBrush="#FF404040" BorderThickness="5,5,5,5" FontSize="24" FontWeight="Bold" Foreground="White"/>
 
     </Grid>
