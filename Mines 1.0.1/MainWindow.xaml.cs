@@ -403,7 +403,7 @@ namespace Mines_1._0._1
                     ticked--;
                     mines.Content = ticked;
                 }
-                else if (ticked == 0)
+                if (ticked == 0)
                 {
 
                     MessageBoxResult res = MessageBox.Show("Check mines?", "", MessageBoxButton.YesNo);
