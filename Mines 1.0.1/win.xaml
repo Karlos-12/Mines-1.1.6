@@ -1,0 +1,15 @@
+﻿<Window x:Class="Mines_1._0._1.win"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Mines_1._0._1"
+        mc:Ignorable="d"
+        Title="win" Height="328" Width="650" Foreground="{x:Null}" Background="#7F4E4E4E">
+    <Grid>
+        <Label Content="You have won!" HorizontalAlignment="Center" Height="82" Margin="0,10,0,0" VerticalAlignment="Top" Width="496" Background="{x:Null}" Foreground="White" FontSize="68" FontWeight="Bold" FontFamily="Inter Black"/>
+        <Button Content="Continue" HorizontalAlignment="Center" Height="50" Margin="0,224,0,0" VerticalAlignment="Top" Width="150" Background="#FF6D6D6D" BorderBrush="#FF404040" Foreground="White" FontSize="24" FontWeight="Bold" BorderThickness="5,5,5,5" Click="Button_Click_1"/>
+        <Image HorizontalAlignment="Center" Height="140" Margin="0,79,0,0" VerticalAlignment="Top" Width="136" Source="/happyone.png"/>
+
+    </Grid>
+</Window>

@@ -293,7 +293,8 @@ namespace Mines_1._0._1
         }
         public void Ended()
         {
-            MessageBox.Show("Game over!");
+            lose l = new lose();
+            l.Show();
             tl.IsEnabled = false;
         }
 
@@ -408,9 +409,10 @@ namespace Mines_1._0._1
                     MessageBoxResult res = MessageBox.Show("Check mines?", "", MessageBoxButton.YesNo);
                     if (res == MessageBoxResult.Yes)
                     {
-                        if (_3_8.Content == "!"! & _4_3.Content == "!"! & _5_3.Content == "!"! & _5_4.Content == "!"! & _6_3.Content == "!"! & _6_9.Content == "!"! & _8_6.Content == "!"! & _9_3.Content == "!"! & _9_7.Content == "!"! & _9_8.Content == "!")
+                        if (_3_8.Content == "!"! & _4_2.Content == "!"! & _5_2.Content == "!"! & _5_3.Content == "!"! & _6_2.Content == "!"! & _6_9.Content == "!"! & _8_6.Content == "!"! & _9_3.Content == "!"! & _9_7.Content == "!"! & _9_8.Content == "!")
                         {
-                            MessageBox.Show("You have won!");
+                            win w = new win();
+                            w.Show();
                         }
                         else
                         {

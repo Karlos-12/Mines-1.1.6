@@ -9,10 +9,14 @@
 
   <ItemGroup>
     <None Remove="flagmine.png" />
+    <None Remove="happyone.png" />
+    <None Remove="sadone.png" />
   </ItemGroup>
 
   <ItemGroup>
     <Resource Include="flagmine.png" />
+    <Resource Include="happyone.png" />
+    <Resource Include="sadone.png" />
   </ItemGroup>
 
 </Project>
