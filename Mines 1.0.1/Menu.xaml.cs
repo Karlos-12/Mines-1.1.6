@@ -24,7 +24,7 @@ namespace Mines_1._0._1
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
+            System.Diagnostics.Process.Start("https://www.wikihow.com/wikiHow:Contribute?utm_source=wikihow&utm_medium=banner&utm_campaign=contribute2");
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)

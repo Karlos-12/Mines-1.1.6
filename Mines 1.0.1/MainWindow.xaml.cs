@@ -11,6 +11,7 @@ namespace Mines_1._0._1
     /// </summary>
     public partial class MainWindow : Window
     {
+        Menu men = new Menu();
 
         SolidColorBrush _1b = new SolidColorBrush(Color.FromArgb(100, 0, 89, 255));
         SolidColorBrush _2b = new SolidColorBrush(Color.FromArgb(100, 0, 215, 0));
@@ -151,9 +152,22 @@ namespace Mines_1._0._1
         {
 
             InitializeComponent();
+            men.Show();
+            Hide();
 
-            mines.Content = ticked;
 
+            tagall();
+          
+
+
+
+
+
+
+
+        }
+        public void tagall()
+        {
             _1_1.Tag = sou1;
             _1_2.Tag = sou2;
             _1_3.Tag = sou3;
@@ -263,12 +277,6 @@ namespace Mines_1._0._1
             _10_8.Tag = sou98;
             _10_9.Tag = sou99;
             _10_10.Tag = sou100;
-
-
-
-
-
-
 
         }
 
@@ -422,6 +430,8 @@ namespace Mines_1._0._1
         int stp = 0;
         private void start_Click(object sender, RoutedEventArgs e)
         {
+            tagall();
+
             if (stp == 0)
             {
                 stp = 1;
