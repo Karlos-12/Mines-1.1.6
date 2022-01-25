@@ -1,4 +1,5 @@
-﻿using System.Timers;
+﻿using System;
+using System.Timers;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -157,7 +158,7 @@ namespace Mines_1._0._1
 
 
             tagall();
-          
+
 
 
 
@@ -306,7 +307,7 @@ namespace Mines_1._0._1
             {
                 if (Log[h, w] == 0)
                 {
-                    Log[h, w] = 5;
+
                     try
                     {
                         ((Button)(FindName("_" + (h + 1) + "_" + (w + 1)))).Content = 0;
@@ -315,15 +316,15 @@ namespace Mines_1._0._1
                         if (Log[h + 1, w + 1] != 5)
                         { Countit(h + 1, w + 1); }
                         if (Log[h, w + 1] != 5)
-                        { Countit(h, w + 1);}
+                        { Countit(h, w + 1); }
                         if (Log[h - 1, w] != 5)
-                        { Countit(h - 1, w);}
+                        { Countit(h - 1, w); }
                         if (Log[h - 1, w - 1] != 5)
-                        { Countit(h - 1, w - 1);}
+                        { Countit(h - 1, w - 1); }
                         if (Log[h, w - 1] != 5)
-                        { Countit(h, w - 1);}
+                        { Countit(h, w - 1); }
                         if (Log[h + 1, w - 1] != 5)
-                        { Countit(h + 1, w - 1);}
+                        { Countit(h + 1, w - 1); }
                         if (Log[h - 1, w + 1] != 5)
                         { Countit(h - 1, w + 1); }
                     }
@@ -378,7 +379,7 @@ namespace Mines_1._0._1
                     }
                     catch { MessageBox.Show("unexpected error!"); };
                 }
-                if (Log[h, w] == 4)
+                if (Log[h, w] == -1)
                 {
                     try
                     {
@@ -497,6 +498,82 @@ namespace Mines_1._0._1
         {
             men.Hide();
         }
+
+        public void AutoGeneratio()
+        {
+            for (int i = 10; i > 0; i--)
+            {
+                Random rm1 = new Random();
+                Random rm2 = new Random();
+
+                int p1 = rm1.Next(0, 9);
+                int p2 = rm2.Next(0, 9);
+
+                Log[p1, p2] = -1;
+            }
+            int m1 = 9;
+            int m2 = 9;
+            int near = 0;
+            for (int i = Log.Length; i > 0; i--)
+            {
+                if (Log[m1, m2] != -1)
+                {
+                    if(Log[m1- 1, m2] == -1)
+                    {
+                        near++;
+                    }
+                    if (Log[m1- 1, m2- 1] == -1)
+                    {
+                        near++;
+                    }
+                    if (Log[m1, m2- 1] == -1)
+                    {
+                        near++;
+                    }
+                    if (Log[m1- 2, m2] == -1)
+                    {
+                        near++;
+                    }
+                    if (Log[m1- 2, m2- 2] == -1)
+                    {
+                        near++;
+                    }
+                    if (Log[m1, m2- 2] == -1)
+                    {
+                        near++;
+                    }
+                    if (Log[m1- 1, m2- 2] == -1)
+                    {
+                        near++;
+                    }
+                    if (Log[m1- 2, m2- 1] == -1)
+                    {
+                        near++;
+                    }
+
+                    Log[m1, m2] = near;
+
+                    near = 0;
+
+                }
+                else
+                {
+                    MessageBox.Show("mine skiped!");
+                }
+                m2--;
+                if(m2 < 0)
+                {
+                    m2 = 9;
+                    m1--;
+                }
+            }
+        }
+
+
+
+
+
+
     }
 
 
