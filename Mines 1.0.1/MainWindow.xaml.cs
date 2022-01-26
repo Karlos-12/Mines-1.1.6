@@ -151,6 +151,8 @@ namespace Mines_1._0._1
         Mines sou100 = new Mines(9, 9);
 
         int ticked = 10;
+        int click_s1 = 0;
+        int click_s2 = 0;
 
         public MainWindow()
         {
@@ -275,13 +277,22 @@ namespace Mines_1._0._1
             _10_10.Tag = sou100;
 
         }
-
+        int first_click = 0;
         public void main_Click(object sender, RoutedEventArgs e)
         {
             Button bt = (Button)sender;
+            first_click++;
 
+            if(first_click == 1)
+            {
+                click_s1 = ((Mines)bt.Tag).up;
+                click_s2 = ((Mines)bt.Tag).side;
+                AutoGeneratio();
+                tagall();               
+            }
+            
+           
             Countit(((Mines)bt.Tag).up, ((Mines)bt.Tag).side);
-
         }
         public void Ended()
         {
@@ -289,10 +300,7 @@ namespace Mines_1._0._1
             lose l = new lose();
             l.Show();
             Close();
-
         }
-
-
 
         public void Countit(int h, int w)
         {
@@ -479,7 +487,7 @@ namespace Mines_1._0._1
                     now.Content = "!";
                     now.Background = new SolidColorBrush(Color.FromArgb(255, 242, 239, 6));
                     ticked--;
-                    mines.Content = ticked;
+                    mine_input.Text = ticked.ToString();
                 }
                 if (ticked == 0)
                 {
@@ -515,15 +523,14 @@ namespace Mines_1._0._1
                 now.Content = "";
                 now.Background = new SolidColorBrush(Color.FromRgb(112, 112, 112));
                 ticked++;
-                mines.Content = ticked;
+                mine_input.Text = ticked.ToString();
             }
         }
         int stp = 0;
         private void start_Click(object sender, RoutedEventArgs e)
         {
             
-            AutoGeneratio();
-            tagall();
+            
 
             if (stp == 0)
             {
@@ -534,6 +541,7 @@ namespace Mines_1._0._1
                 myTimer.Elapsed += new ElapsedEventHandler(DisplayTimeEvent);
                 myTimer.Interval = 1000;
                 myTimer.Start();
+                mine_input.IsEnabled = false;
 
 
             }
@@ -590,7 +598,7 @@ namespace Mines_1._0._1
         }
 
 
-
+        
         public void AutoGeneratio()
         {
             for (int i = ticked; i != 0; i--)
@@ -601,14 +609,15 @@ namespace Mines_1._0._1
                 int p1 = rm1.Next(0, 9);
                 int p2 = rm2.Next(0, 9);
 
-                if (Log[p1, p2] == -1)
+                if (Log[p1, p2] == -1 || (p1 == click_s1! & p2 == click_s2) || (p1 +1 == click_s1! & p2 == click_s2) || (p1 == click_s1! & p2 +1 == click_s2) || (p1 +1 == click_s1! & p2 +1 == click_s2) || (p1 -1 == click_s1! & p2 == click_s2) || (p1 == click_s1! & p2 -1 == click_s2) || (p1-1 == click_s1! & p2-1 == click_s2) || (p1 -1 == click_s1! & p2 +1 == click_s2) || (p1 +1 == click_s1! & p2 -1 == click_s2))
                 {
                     do
                     {
                         p2 = rm2.Next(0, 9);
                     }
-                    while (Log[p1, p2] == -1);
+                    while (Log[p1, p2] == -1 || (p1 == click_s1! & p2 == click_s2) || (p1 + 1 == click_s1! & p2 == click_s2) || (p1 == click_s1! & p2 + 1 == click_s2) || (p1 + 1 == click_s1! & p2 + 1 == click_s2) || (p1 - 1 == click_s1! & p2 == click_s2) || (p1 == click_s1! & p2 - 1 == click_s2) || (p1 - 1 == click_s1! & p2 - 1 == click_s2) || (p1 - 1 == click_s1! & p2 + 1 == click_s2) || (p1 + 1 == click_s1! & p2 - 1 == click_s2));
                 }
+                
 
                 Log[p1, p2] = -1;
 
