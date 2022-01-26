@@ -37,18 +37,7 @@ namespace Mines_1._0._1
             {0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
             {0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }
             };
-        int[,] minespos = {
-            {0, 0},
-            {0, 0},
-            {0, 0},
-            {0, 0},
-            {0, 0},
-            {0, 0},
-            {0, 0},
-            {0, 0},
-            {0, 0},
-            {0, 0}
-        };
+        int[,] minespos = new int [100, 2];
 
 
         Mines sou1 = new Mines(0, 0);
@@ -161,10 +150,7 @@ namespace Mines_1._0._1
         Mines sou99 = new Mines(9, 8);
         Mines sou100 = new Mines(9, 9);
 
-
         int ticked = 10;
-
-
 
         public MainWindow()
         {
@@ -482,12 +468,12 @@ namespace Mines_1._0._1
             {
                 if (ticked != 0)
                 {
-                    if(Log[((Mines)now.Tag).up, ((Mines)now.Tag).side] == -1)
+                    if (Log[((Mines)now.Tag).up, ((Mines)now.Tag).side] == -1)
                     {
                         Log[((Mines)now.Tag).up, ((Mines)now.Tag).side] = -3;
                     }
-                    
-                    
+
+
 
 
                     now.Content = "!";
@@ -501,7 +487,14 @@ namespace Mines_1._0._1
                     MessageBoxResult res = MessageBox.Show("Check mines?", "", MessageBoxButton.YesNo);
                     if (res == MessageBoxResult.Yes)
                     {
-                        if (Log[minespos[0, 0], minespos[0, 1]] == -3! & Log[minespos[1, 0], minespos[1, 1]] == -3! & Log[minespos[2, 0], minespos[2, 1]] == -3! & Log[minespos[3, 0], minespos[3, 1]] == -3! & Log[minespos[4, 0], minespos[4, 1]] == -3! & Log[minespos[5, 0], minespos[5, 1]] == -3! & Log[minespos[6, 0], minespos[6, 1]] == -3! & Log[minespos[7, 0], minespos[7, 1]] == -3! & Log[minespos[8, 0], minespos[8, 1]] == -3! & Log[minespos[9, 0], minespos[9, 1]] == -3)
+                        for (int i = ticked; i > 0; i--)
+                        {
+                            if (Log[minespos[i - 1, 0], minespos[i - 1, 1]] == -3)
+                            {
+                            ticked--;
+                            }
+                        }
+                        if (ticked == 0)
                         {
                             win w = new win();
                             w.Show();
@@ -528,6 +521,7 @@ namespace Mines_1._0._1
         int stp = 0;
         private void start_Click(object sender, RoutedEventArgs e)
         {
+            
             AutoGeneratio();
             tagall();
 
@@ -599,7 +593,7 @@ namespace Mines_1._0._1
 
         public void AutoGeneratio()
         {
-            for (int i = 10; i != 0; i--)
+            for (int i = ticked; i != 0; i--)
             {
                 Random rm1 = new Random();
                 Random rm2 = new Random();
@@ -615,12 +609,12 @@ namespace Mines_1._0._1
                     }
                     while (Log[p1, p2] == -1);
                 }
-               
-                    Log[p1, p2] = -1;
-                
 
-                minespos[i -1, 0] = p1;
-                minespos[i -1, 1] = p2;
+                Log[p1, p2] = -1;
+
+
+                minespos[(i - 1) , 0] = p1;
+                minespos[(i - 1) , 1] = p2;
             }
 
             int m1 = 9;
@@ -716,11 +710,17 @@ namespace Mines_1._0._1
             }
         }
 
-
-
-
-
-
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            try 
+            {
+            ticked = int.Parse(mine_input.Text);
+            }
+            catch
+            {
+                MessageBox.Show("Input a valid number!");
+            }
+        }
     }
 
 
