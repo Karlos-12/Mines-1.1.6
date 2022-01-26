@@ -17,8 +17,13 @@ namespace Mines_1._0._1
         SolidColorBrush _1b = new SolidColorBrush(Color.FromArgb(100, 0, 89, 255));
         SolidColorBrush _2b = new SolidColorBrush(Color.FromArgb(100, 0, 215, 0));
         SolidColorBrush _3b = new SolidColorBrush(Color.FromArgb(100, 255, 0, 0));
+        SolidColorBrush _4b = new SolidColorBrush(Color.FromArgb(100, 0, 23, 151));
+        SolidColorBrush _5b = new SolidColorBrush(Color.FromArgb(100, 97, 54, 16));
+        SolidColorBrush _6b = new SolidColorBrush(Color.FromArgb(100, 44, 240, 212));
+        SolidColorBrush _7b = new SolidColorBrush(Color.FromArgb(100, 255, 255, 255));
+        SolidColorBrush _8b = new SolidColorBrush(Color.FromArgb(100, 255, 136, 32));
 
-        SolidColorBrush _5b = new SolidColorBrush(Color.FromArgb(100, 255, 255, 255));
+        SolidColorBrush _xb = new SolidColorBrush(Color.FromArgb(100, 255, 255, 255));
 
         int[,] Log = {
             {0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
@@ -411,12 +416,57 @@ namespace Mines_1._0._1
                     }
                     catch { MessageBox.Show("unexpected error!"); };
                 }
+                else if (Log[h, w] == 4)
+                {
+                    try
+                    {
+                        ((Button)(FindName("_" + (h + 1) + "_" + (w + 1)))).Content = 4;
+                        ((Button)(FindName("_" + (h + 1) + "_" + (w + 1)))).Background = _4b;
+                    }
+                    catch { MessageBox.Show("unexpected error!"); };
+                }
+                else if (Log[h, w] == 5)
+                {
+                    try
+                    {
+                        ((Button)(FindName("_" + (h + 1) + "_" + (w + 1)))).Content = 5;
+                        ((Button)(FindName("_" + (h + 1) + "_" + (w + 1)))).Background = _5b;
+                    }
+                    catch { MessageBox.Show("unexpected error!"); };
+                }
+                else if (Log[h, w] == 6)
+                {
+                    try
+                    {
+                        ((Button)(FindName("_" + (h + 1) + "_" + (w + 1)))).Content = 6;
+                        ((Button)(FindName("_" + (h + 1) + "_" + (w + 1)))).Background = _6b;
+                    }
+                    catch { MessageBox.Show("unexpected error!"); };
+                }
+                else if (Log[h, w] == 7)
+                {
+                    try
+                    {
+                        ((Button)(FindName("_" + (h + 1) + "_" + (w + 1)))).Content = 7;
+                        ((Button)(FindName("_" + (h + 1) + "_" + (w + 1)))).Background = _7b;
+                    }
+                    catch { MessageBox.Show("unexpected error!"); };
+                }
+                else if (Log[h, w] == 8)
+                {
+                    try
+                    {
+                        ((Button)(FindName("_" + (h + 1) + "_" + (w + 1)))).Content = 8;
+                        ((Button)(FindName("_" + (h + 1) + "_" + (w + 1)))).Background = _8b;
+                    }
+                    catch { MessageBox.Show("unexpected error!"); };
+                }
                 else if (Log[h, w] == -1)
                 {
                     try
                     {
                         ((Button)(FindName("_" + (h + 1) + "_" + (w + 1)))).Content = "x";
-                        ((Button)(FindName("_" + (h + 1) + "_" + (w + 1)))).Background = _5b;
+                        ((Button)(FindName("_" + (h + 1) + "_" + (w + 1)))).Background = _xb;
                     }
                     catch { MessageBox.Show("unexpected error!"); };
                     Ended();
