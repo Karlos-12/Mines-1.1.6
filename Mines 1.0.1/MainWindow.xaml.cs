@@ -723,12 +723,21 @@ namespace Mines_1._0._1
         {
             try 
             {
-            ticked = int.Parse(mine_input.Text);
+                if(int.Parse(mine_input.Text) > 99)
+                {
+                    MessageBox.Show("Input a valid number!");
+                }
+                else
+                {
+                    ticked = int.Parse(mine_input.Text);
+                }
+            
             }
             catch
             {
                 MessageBox.Show("Input a valid number!");
             }
+            
         }
     }
 
