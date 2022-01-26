@@ -22,16 +22,28 @@ namespace Mines_1._0._1
 
         int[,] Log = {
             {0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-            {0, 0, 0, 0, 0, 0, 1, 1, 1, 0 },
-            {1, 1, 1, 0, 0, 0, 1, 4, 1, 0 },
-            {2, 4, 3, 1, 0, 0, 1, 1, 1, 0 },
-            {3, 4, 4, 1, 0, 0, 0, 1, 1, 1 },
-            {2, 4, 3, 1, 0, 0, 0, 1, 4, 1 },
-            {1, 1, 1, 0, 1, 1, 1, 1, 1, 1 },
-            {0, 1, 1, 1, 1, 4, 3, 2, 1, 0 },
-            {0, 1, 4, 1, 1, 2, 4, 4, 1, 0 },
-            {0, 1, 1, 1, 0, 1, 2, 2, 1, 0 }
+            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }
             };
+        int[,] minespos = {
+            {0, 0},
+            {0, 0},
+            {0, 0},
+            {0, 0},
+            {0, 0},
+            {0, 0},
+            {0, 0},
+            {0, 0},
+            {0, 0},
+            {0, 0}
+        };
 
 
         Mines sou1 = new Mines(0, 0);
@@ -156,15 +168,7 @@ namespace Mines_1._0._1
             men.Show();
             Hide();
 
-
             tagall();
-
-
-
-
-
-
-
 
         }
         public void tagall()
@@ -285,18 +289,16 @@ namespace Mines_1._0._1
         {
             Button bt = (Button)sender;
 
-
-
-
             Countit(((Mines)bt.Tag).up, ((Mines)bt.Tag).side);
-
 
         }
         public void Ended()
         {
+            tl.IsEnabled = false;
             lose l = new lose();
             l.Show();
-            tl.IsEnabled = false;
+            Close();
+
         }
 
 
@@ -307,26 +309,56 @@ namespace Mines_1._0._1
             {
                 if (Log[h, w] == 0)
                 {
-
+                    Log[h, w] = -2;
+                    ((Button)(FindName("_" + (h + 1) + "_" + (w + 1)))).Content = 0;
                     try
                     {
-                        ((Button)(FindName("_" + (h + 1) + "_" + (w + 1)))).Content = 0;
-                        if (Log[h + 1, w] != 5)
+                        if (Log[h + 1, w] != -2)
                         { Countit(h + 1, w); }
-                        if (Log[h + 1, w + 1] != 5)
+                    }
+                    catch { };
+                    try
+                    {
+                        if (Log[h + 1, w + 1] != -2)
                         { Countit(h + 1, w + 1); }
-                        if (Log[h, w + 1] != 5)
+                    }
+                    catch { };
+                    try
+                    {
+                        if (Log[h, w + 1] != -2)
                         { Countit(h, w + 1); }
-                        if (Log[h - 1, w] != 5)
+                    }
+                    catch { };
+                    try
+                    {
+                        if (Log[h - 1, w] != -2)
                         { Countit(h - 1, w); }
-                        if (Log[h - 1, w - 1] != 5)
-                        { Countit(h - 1, w - 1); }
-                        if (Log[h, w - 1] != 5)
+                    }
+                    catch { };
+                    try
+                    {
+                        if (Log[h - 1, w - 1] != -2)
+                        {
+                            Countit(h - 1, w - 1);
+                        }
+                    }
+                    catch { };
+                    try
+                    {
+                        if (Log[h, w - 1] != -2)
                         { Countit(h, w - 1); }
-                        if (Log[h + 1, w - 1] != 5)
+                    }
+                    catch { };
+                    try
+                    {
+                        if (Log[h + 1, w - 1] != -2)
                         { Countit(h + 1, w - 1); }
-                        if (Log[h - 1, w + 1] != 5)
-                        { Countit(h - 1, w + 1); }
+                    }
+                    catch { };
+                    try
+                    {
+                        if (Log[h - 1, w + 1] != -2)
+                            Countit(h - 1, w + 1);
                     }
                     catch { };
 
@@ -352,7 +384,7 @@ namespace Mines_1._0._1
                     }
                     catch { };
                 }
-                if (Log[h, w] == 1)
+                else if (Log[h, w] == 1)
                 {
                     try
                     {
@@ -361,7 +393,7 @@ namespace Mines_1._0._1
                     }
                     catch { MessageBox.Show("unexpected error!!"); };
                 }
-                if (Log[h, w] == 2)
+                else if (Log[h, w] == 2)
                 {
                     try
                     {
@@ -370,7 +402,7 @@ namespace Mines_1._0._1
                     }
                     catch { MessageBox.Show("unexpected error!"); };
                 }
-                if (Log[h, w] == 3)
+                else if (Log[h, w] == 3)
                 {
                     try
                     {
@@ -379,7 +411,7 @@ namespace Mines_1._0._1
                     }
                     catch { MessageBox.Show("unexpected error!"); };
                 }
-                if (Log[h, w] == -1)
+                else if (Log[h, w] == -1)
                 {
                     try
                     {
@@ -388,6 +420,7 @@ namespace Mines_1._0._1
                     }
                     catch { MessageBox.Show("unexpected error!"); };
                     Ended();
+
                 }
             }
         }
@@ -399,6 +432,14 @@ namespace Mines_1._0._1
             {
                 if (ticked != 0)
                 {
+                    if(Log[((Mines)now.Tag).up, ((Mines)now.Tag).side] == -1)
+                    {
+                        Log[((Mines)now.Tag).up, ((Mines)now.Tag).side] = -3;
+                    }
+                    
+                    
+
+
                     now.Content = "!";
                     now.Background = new SolidColorBrush(Color.FromArgb(255, 242, 239, 6));
                     ticked--;
@@ -410,7 +451,7 @@ namespace Mines_1._0._1
                     MessageBoxResult res = MessageBox.Show("Check mines?", "", MessageBoxButton.YesNo);
                     if (res == MessageBoxResult.Yes)
                     {
-                        if (_3_8.Content == "!"! & _4_2.Content == "!"! & _5_2.Content == "!"! & _5_3.Content == "!"! & _6_2.Content == "!"! & _6_9.Content == "!"! & _8_6.Content == "!"! & _9_3.Content == "!"! & _9_7.Content == "!"! & _9_8.Content == "!")
+                        if (Log[minespos[0, 0], minespos[0, 1]] == -3! & Log[minespos[1, 0], minespos[1, 1]] == -3! & Log[minespos[2, 0], minespos[2, 1]] == -3! & Log[minespos[3, 0], minespos[3, 1]] == -3! & Log[minespos[4, 0], minespos[4, 1]] == -3! & Log[minespos[5, 0], minespos[5, 1]] == -3! & Log[minespos[6, 0], minespos[6, 1]] == -3! & Log[minespos[7, 0], minespos[7, 1]] == -3! & Log[minespos[8, 0], minespos[8, 1]] == -3! & Log[minespos[9, 0], minespos[9, 1]] == -3)
                         {
                             win w = new win();
                             w.Show();
@@ -424,6 +465,10 @@ namespace Mines_1._0._1
             }
             else if (now.Content == "!")
             {
+                if (Log[((Mines)now.Tag).up, ((Mines)now.Tag).side] == -3)
+                {
+                    Log[((Mines)now.Tag).up, ((Mines)now.Tag).side] = -1;
+                }
                 now.Content = "";
                 now.Background = new SolidColorBrush(Color.FromRgb(112, 112, 112));
                 ticked++;
@@ -433,6 +478,7 @@ namespace Mines_1._0._1
         int stp = 0;
         private void start_Click(object sender, RoutedEventArgs e)
         {
+            AutoGeneratio();
             tagall();
 
             if (stp == 0)
@@ -499,9 +545,11 @@ namespace Mines_1._0._1
             men.Hide();
         }
 
+
+
         public void AutoGeneratio()
         {
-            for (int i = 10; i > 0; i--)
+            for (int i = 10; i != 0; i--)
             {
                 Random rm1 = new Random();
                 Random rm2 = new Random();
@@ -509,47 +557,96 @@ namespace Mines_1._0._1
                 int p1 = rm1.Next(0, 9);
                 int p2 = rm2.Next(0, 9);
 
-                Log[p1, p2] = -1;
+                if (Log[p1, p2] == -1)
+                {
+                    do
+                    {
+                        p2 = rm2.Next(0, 9);
+                    }
+                    while (Log[p1, p2] == -1);
+                }
+               
+                    Log[p1, p2] = -1;
+                
+
+                minespos[i -1, 0] = p1;
+                minespos[i -1, 1] = p2;
             }
+
             int m1 = 9;
             int m2 = 9;
             int near = 0;
+
             for (int i = Log.Length; i > 0; i--)
             {
                 if (Log[m1, m2] != -1)
                 {
-                    if(Log[m1- 1, m2] == -1)
+                    try
                     {
-                        near++;
+                        if (Log[m1 - 1, m2] == -1)
+                        {
+                            near++;
+                        }
                     }
-                    if (Log[m1- 1, m2- 1] == -1)
+                    catch { }
+                    try
                     {
-                        near++;
+
+                        if (Log[m1 - 1, m2 - 1] == -1)
+                        {
+                            near++;
+                        }
                     }
-                    if (Log[m1, m2- 1] == -1)
+                    catch { }
+                    try
                     {
-                        near++;
+                        if (Log[m1, m2 - 1] == -1)
+                        {
+                            near++;
+                        }
                     }
-                    if (Log[m1- 2, m2] == -1)
+                    catch { }
+                    try
                     {
-                        near++;
+                        if (Log[m1 + 1, m2] == -1)
+                        {
+                            near++;
+                        }
                     }
-                    if (Log[m1- 2, m2- 2] == -1)
+                    catch { }
+                    try
                     {
-                        near++;
+                        if (Log[m1 + 1, m2 + 1] == -1)
+                        {
+                            near++;
+                        }
                     }
-                    if (Log[m1, m2- 2] == -1)
+                    catch { }
+                    try
                     {
-                        near++;
+                        if (Log[m1, m2 + 1] == -1)
+                        {
+                            near++;
+                        }
                     }
-                    if (Log[m1- 1, m2- 2] == -1)
+                    catch { }
+                    try
                     {
-                        near++;
+                        if (Log[m1 - 1, m2 + 1] == -1)
+                        {
+                            near++;
+                        }
                     }
-                    if (Log[m1- 2, m2- 1] == -1)
+                    catch { }
+                    try
                     {
-                        near++;
+                        if (Log[m1 + 1, m2 - 1] == -1)
+                        {
+                            near++;
+                        }
                     }
+                    catch { }
+
 
                     Log[m1, m2] = near;
 
@@ -558,10 +655,10 @@ namespace Mines_1._0._1
                 }
                 else
                 {
-                    MessageBox.Show("mine skiped!");
+
                 }
                 m2--;
-                if(m2 < 0)
+                if (m2 < 0)
                 {
                     m2 = 9;
                     m1--;
